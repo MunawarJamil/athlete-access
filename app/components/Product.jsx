@@ -22,9 +22,7 @@ function Product() {
                 <p className="text-blue-500">{product.flavors}</p>
                 <p>{product.price}</p>
                 <p className="text-orange-300">{product.rating}</p>
-                <div className="flex items-center justify-center bg-blue-600 py-2 text-lg font-semibold text-white rounded-md my-2">
-                  Add to Cart
-                </div>
+                 
               </div>
             </Link>
           ))}
@@ -45,9 +43,7 @@ function Product() {
               <p className="text-blue-500">{product.flavors}</p>
               <p>{product.price}</p>
               <p className="text-orange-300">{product.rating}</p>
-              <div className="flex items-center justify-center bg-blue-600 py-2 text-lg font-semibold text-white rounded-md my-2">
-                Add to Cart
-              </div>
+               
             </div>
           </Link>
         ))}
