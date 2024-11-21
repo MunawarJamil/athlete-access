@@ -18,10 +18,7 @@ function Page() {
   };
 
   const handleQuantityChange = (id, action) => {
-
-   
-
-
+ 
     const item = cartItems.find((item) => item.id === id);
     if (!item) return;
 

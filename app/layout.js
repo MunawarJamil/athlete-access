@@ -1,9 +1,8 @@
-'use client'; 
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import { Provider } from "react-redux";
-import store from "./store/store";
+import Navbar from "./components/Navbar";  
+import StoreProvider from "./Store-Provider";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -15,10 +14,10 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-// export const metadata = {
-//   title: "Power_Access",
-//   description: "Get your desired products to build your dream body",
-// };
+export const metadata = {
+  title: "Power_Access",
+  description: "Get your desired products to build your dream body",
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -26,12 +25,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Provider store={store}>
+        <StoreProvider>
           <div className="fixed top-0 left-0 w-full z-10">
             <Navbar />
           </div>
           {children}
-        </Provider>
+        </StoreProvider>
       </body>
     </html>
   );

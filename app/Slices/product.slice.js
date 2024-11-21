@@ -1,15 +1,28 @@
- 'use client';
+ 
 import { createSlice } from '@reduxjs/toolkit';
-
+import { product_sec_row, products } from '../data/product-data';
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
     items: [],
+    products: [...product_sec_row, ...products],
   },
   reducers: {
+    // addItemToCart: (state, action) => {
+    //   state.items.push(action.payload);
+    // },
+
+
     addItemToCart: (state, action) => {
-      state.items.push(action.payload);
+      const existingItem = state.items.find(item => item.id === action.payload.id);
+      if (existingItem) {
+        existingItem.quantity += 1; // Or any quantity logic
+      } else {
+        state.items.push({ ...action.payload, quantity: 1 });
+      }
     },
+
+
     removeItemFromCart: (state, action) => {
         const { id } = action.payload;
         // Filter out the item with the matching id

@@ -1,17 +1,16 @@
 "use client";
 
-import Footer from "@/app/components/Footer";
-import Link from "next/link"; 
-import { useDispatch } from 'react-redux';
-import { addItemToCart } from "@/app/Slices/product.slice";
+import Footer from "@/app/components/Footer"; 
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../Slices/product.slice";
+import Link from "next/link";
+export default function ProductDetails({ data }) { 
+  const dispatch = useDispatch();
+ const handleAddToCart=()=>{
+console.log("product added ");
+dispatch(addItemToCart(data))
 
-export default function ProductDetails({ data }) {
-  const dispatch = useDispatch(); 
-
-  const handleAddToCart = () => {
-    dispatch(addItemToCart(data));
-  };
-
+ }
   return (
     <>
       <section className="text-gray-700 body-font overflow-hidden bg-white">
@@ -58,7 +57,7 @@ export default function ProductDetails({ data }) {
                   <div className="relative">
                     <select className="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
                       <option>SM</option>
-                      <option>M</option>
+                      <option>M</option> 
                       <option>L</option>
                       <option>XL</option>
                     </select>
@@ -84,9 +83,9 @@ export default function ProductDetails({ data }) {
                   className="flex ml-5 text-white bg-blue-700 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded"
                   onClick={handleAddToCart}
                 >
-                  <Link href="/cart">
+                    <Link href="/cart">
                     Add To Cart
-                  </Link>
+                  </Link>   
                 </button>
               </div>
             </div>

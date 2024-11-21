@@ -1,6 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect, useState } from 'react'; 
 function HomePage() {
   const [dbStatus, setDbStatus] = useState(null);
 
@@ -8,7 +7,7 @@ function HomePage() {
     // Call your API to check DB connection status
     const checkDbConnection = async () => {
       try {
-        const response = await fetch('/api/check-connection'); // Update the API endpoint accordingly
+        const response = await fetch(  '/api/check-connection'); // Update the API endpoint accordingly
         const data = await response.json();
         
         // Set the message from the API response
