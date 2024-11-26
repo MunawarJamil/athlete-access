@@ -6,9 +6,10 @@ import Link from "next/link";
 import { X } from 'lucide-react';
 import { ShoppingBag } from 'lucide-react';
 import { AlignLeft } from 'lucide-react';
+import { useSelector } from "react-redux";
 function Navbar() {
   const [selectedItem, setSelectedItem] = useState(""); // Track the selected item
-
+const items = useSelector((item=>item.cart.items))
   // Function to handle item clicks
   const itemClicked = (item) => {
     setSelectedItem(selectedItem === item ? "" : item);
@@ -61,7 +62,7 @@ function toggleClicked(){
         </div>
         <div className="icons flex gap-5">
           <CircleUserRound/>
-          <ShoppingBag/>
+          <ShoppingBag/> {items.length}
 
         </div>
       </nav>

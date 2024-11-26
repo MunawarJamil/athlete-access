@@ -29,13 +29,14 @@ const cartSlice = createSlice({
         state.items = state.items.filter((item) => item.id !== id);
       },
 
-    updateQuantity: (state, action) => {
+      updateQuantity: (state, action) => {
         const { id, quantity } = action.payload;
+        if (quantity < 1) return; // Prevent invalid quantity
         const item = state.items.find((item) => item.id === id);
         if (item) {
           item.quantity = quantity;
         }
-      },
+    },
     // Additional actions like removeItem, clearCart, etc., can go here
   },
 });

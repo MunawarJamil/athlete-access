@@ -45,7 +45,7 @@ dispatch(addItemToCart(data))
               </div>
 
               <p className="leading-relaxed">
-                Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY.
+                {data.discription}
               </p>
 
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">

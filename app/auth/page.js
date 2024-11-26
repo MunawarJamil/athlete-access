@@ -14,7 +14,7 @@ const AuthForm = () => {
 
   // fullname , email , password , confirmpassword
 
-  const [fullname, setFullName] = useState([]);
+  const [fullname, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
