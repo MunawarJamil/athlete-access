@@ -229,7 +229,7 @@ const AuthForm = () => {
             )}
 
             {isLogin ? (
-              <div className="mt-8 text-center ">
+              <div className="mt-8 text-center ">  
                 Not a member?{" "}
                 <a
                   href="#"

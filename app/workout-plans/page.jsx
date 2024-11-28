@@ -3,22 +3,25 @@ import React from 'react'
 function workOutPlans() {
   return (
     < > 
-    <div className='w-full max-h-[100vh]    bg-slate-900'>
+    <div className='w-full relative max-h-[100vh]    bg-slate-900'>
+
     <img src="./woplans-banner.jpg" alt="" width="80%" className=' mx-auto    object-cover'     />
  
     </div>
 
-    <div>
-<h1>POWER <span>ACCESS</span> </h1>
-<h2>The Ultimate Fitness Solution</h2>
-<p>For 20 years, Bodybuilding.com has been the internet’s go-to fitness resource. We connect you with the top experts in fitness to help you build your best body, and your best life. BodyFit is our new solution to help give you what you need, from full life-changing programs to great workouts and exercise instruction you can put into action any day of the week.</p>
-<h3>Select Your Plan</h3>
-  <div>
-    <button>Monthly</button>
-  <button>Yearly</button>
+    <div className=' font-serif  absolute top-20   '>
+
+   <div className='flex lg:my-10 text-black lg:text-white  flex-col p-5 mx-auto border border-violet-200 lg:border-0 w-[80%] leading-7   text-center' >   
+<h1 className='text-6xl text-white py-5 font-bold'>POWER <span className='text-cyan-400  font-serif '>ACCESS</span> </h1>
+<h2 className='text-3xl lg:text-4xl text-blue-700 pt-12 lg:p-8 lg:text-white font-bold '>The Ultimate Fitness Solution</h2>
+<p className='lg:text-xl '>For 20 years, Bodybuilding.com has been the internet’s go-to fitness resource. We connect you with the top experts in fitness to help you build your best body, and your best life. BodyFit is our new solution to help give you what you need, <span className='text-black lg:text-white'> from full life-changing programs to great workouts and exercise instruction you can put into action any day of the week. </span>  </p>
+<h3 className='text-3xl font-bold'>Select Your Plan</h3>
+  <div className='flex text-white font-bold my-5 gap-5 justify-center '>
+    <button className='bg-blue-500 py-2 rounded-md px-5'>Monthly</button>
+  <button className='bg-blue-500 py-2 rounded-md px-6  '>Yearly</button>
   </div>
 {/* plan card */}
-<div className='text-white'>
+<div className='text-white hidden'>
   <div className="upper">
   <h1>POWER-ACCESS</h1>
   <button>$9.99/month</button>
@@ -52,7 +55,25 @@ function workOutPlans() {
 </div>
 
 {/* end plan card */}
+</div>  
+ 
 </div>
+
+<section className=' flex flex-col  items-center text-center py-5   w-[80%] mt-[30rem] md:mt-[15rem]  font-serif mx-auto lg:mt-[1rem]'>
+  <h1 className=' text-2xl md:text-4xl  font-bold '>What is BodyFit?</h1>
+  <p className=' my-5 md:my-10 leading-7'>BodyFit is your source for full fitness programs to help you build muscle, lose fat, or become more athletic. It’s loaded with nutrition and exercise plans, follow-along workout videos, and thousands of individual workouts, available through our top-rated fitness app. BodyFit is everything you need to transform.</p>
+
+
+
+  <div>
+  <p className='text-lg  font-bold '>Whether you’re a beginner or a seasoned lifter, there’s a workout for your goals. Check them out below.
+  </p>
+  <img src="" alt="" />
+  </div>
+</section>
+
+
+
     </>
   )
 }
@@ -64,7 +85,7 @@ export default workOutPlans
 
 
 
-
+                                                                                                      
 
 
 

@@ -1,12 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+ 
+import { Carousel, CarouselContent,
+  CarouselItem, } from "../../components/ui/carousel";
+
+
+
  import Product from "./Product";
 function Hero() {
   return (

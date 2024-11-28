@@ -3,11 +3,15 @@ import { NextResponse } from "next/server";
 export const config = {
   matcher: [
     "/dashboard",
-    "/profile",
+   
     "/api/protected",
     "/home",
     "/cart",
   ],
+
+
+
+  // "/profile",
 };
 
 export function middleware(req) {
