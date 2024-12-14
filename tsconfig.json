@@ -21,7 +21,11 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": ".", // Base directory of your project
+    "paths": {
+      "@/*": ["./*"] // Define the alias
+    }
   },
   "include": [
     "next-env.d.ts",

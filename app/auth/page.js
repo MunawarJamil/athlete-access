@@ -86,7 +86,7 @@ const AuthForm = () => {
         setIsLogin(true);
         if (isLogin) router.push("/");
       } else {
-        alert(data.message || "An error occured while");
+        alert(data.message || "An error occured while login");
       }
     } catch (error) {
       console.error("Error:", error);

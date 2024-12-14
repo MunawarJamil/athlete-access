@@ -30,30 +30,30 @@ function toggleClicked(){
 }
   return (
     <>
-      <nav className=" hidden lg:flex justify-between py-5 px-10   bg-black text-white">
-        <div className="logo ">Power-Access</div>
-        <div className="menu-items flex gap-6">
-          <ul className="hidden lg:flex gap-6">
+      <nav className=" hidden text-white text-xl font-serif lg:flex justify-between items-center py-7 border-b shadow-2xl border-black px-10 bg-gradient-to-l  from-blue-800 via-blue-900 to-blue-950 ">
+        <div className="logo text-3xl hover:text-yellow-500 "> <Link href="/" > Power-<span className="text-yellow-500">Access</span></Link> </div>
+        <div className="menu-items flex gap-6"> 
+          <ul className="hidden lg:flex gap-6 ">
             <li
-              className="hover:text-blue-400 cursor-pointer"
+              className="hover:text-yellow-500 cursor-pointer"
               onClick={() => itemClicked("SHOP")}
             >
               SHOP
             </li>
             <li
-              className="hover:text-blue-400 cursor-pointer"
+              className="hover:text-yellow-500 cursor-pointer"
               onClick={() => itemClicked("WORKOUTS")}
             >
               WORKOUTS
             </li>
             <li
-              className="hover:text-blue-400 cursor-pointer"
+              className="hover:text-yellow-500 cursor-pointer"
               onClick={() => itemClicked("ARTICLES")}
             >
               ARTICLES
             </li>
             <li
-              className="hover:text-blue-400 cursor-pointer"
+              className="hover:text-yellow-500 cursor-pointer"
               onClick={() => itemClicked("COMMUNITY")}
             >
               COMMUNITY
@@ -72,7 +72,7 @@ function toggleClicked(){
         <div className="hidden lg:flex gap-10 justify-evenly p-5 font-serif">
           <div>
             <h1 className="text-lg font-semibold">PERFORMANCE & RECOVERY</h1>
-            <ul className="flex flex-col my-4 gap-3">
+            <ul className="flex flex-col my-4 gap-3 hover:text-yellow-500">
               <li><Link href="/home">Whey Protein</Link></li>
               <li><Link href="/home">Whey Protein Isolate</Link></li>
               <li><Link href="/home">Mass Weight Gainers</Link></li>
@@ -199,14 +199,14 @@ function toggleClicked(){
 {/* For screens md and less than md  */}
 
   
-<nav className="   flex justify-between   py-5 px-10 bg-black text-white lg:hidden " >
+<nav className="   flex justify-between   py-5 px-10  bg-gradient-to-l  from-blue-800 via-blue-900 to-blue-950 text-white lg:hidden " >
    
    <div onClick={toggleClicked}>
    {isToggele? <X /> : <AlignLeft className="text-white"/> }
    </div>
    <div>
 
-   <div className="logo ">Power-Access</div>
+   <div className="logo text-2xl ">Power-<span className="text-yellow-500">Access</span> </div>
    </div>
 
    <div className="icons flex gap-5">

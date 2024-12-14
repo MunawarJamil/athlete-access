@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import UserModel from "@/server/models/users.model";
-import db_connection from "@/server/config/db.config";
+// import UserModel from "@/server/models/users.model";
+import db_connection from "../../../server/config/db.config";
+import UserModel from "../../../server/models/users.model";
 // import { serialize } from "cookie";
 
 export async function POST(req) {
