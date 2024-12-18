@@ -42,7 +42,7 @@ return NextResponse.json(
         user: {
             fullname: user.fullname,
             email: user.email,
-            dob: user.dob || "N/A", // If DOB is not set, return "N/A"
+            dob: user.dob || "N/A",  
           },
         },
         { status: 200 }

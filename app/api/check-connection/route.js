@@ -14,16 +14,5 @@ export async function GET() {
   }
 }
 
-
-// export default async function handler(req, res) {
-//     try {
-//       // Ensure the database connection
-//       await db_connection();
-//       res.status(200).json({ message: 'DB Connection Status Checked' });
-//     } catch (error) {
-//       console.error('Error in handler:', error);
-//       res.status(500).json({ message: 'Internal Server Error' });
-//     }
-//   }
-
+ 
 
