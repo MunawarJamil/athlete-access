@@ -33,6 +33,7 @@
     "remove": "^0.1.5",
     "shadcn": "^1.0.0",
     "tailwind-merge": "^2.5.4",
+    "tailwind-scrollbar-hide": "^1.1.7",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
