@@ -8,6 +8,7 @@ export const productsData = [
       discount: "-47%",
       rating: "⭐⭐⭐⭐⭐",
     },
+    
     {
       id: 2,
       title: "Whey Isolate",

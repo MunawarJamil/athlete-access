@@ -17,7 +17,9 @@ export async function GET(req){
                 {status:401}
             )
         }
-// if token found verify it 
+// if token found verify it                                                                                                         
+          
+ 
 
 const decoded = verify(token, process.env.SECRET_KEY)
 const userId = decoded.id;

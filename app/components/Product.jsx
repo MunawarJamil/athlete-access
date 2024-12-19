@@ -3,9 +3,22 @@
 import Image from "next/image";
 import React, { useRef } from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { productsData } from "../data/featuredProduct";
 import Plans from "./Plans";
+import { addProteinToCart } from "../Slices/protein.slice";
+import Link from "next/link";
+ 
 function Product() {
+
+  const dispatch = useDispatch(); 
+
+  const handleAddToCart = (product) => { 
+    dispatch(addProteinToCart(product));
+
+    
+};
+
   const productsRef = useRef(null);
 
   const scroll = (ref, direction) => {
@@ -14,7 +27,9 @@ function Product() {
       ref.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
+ const proteinCartItems = useSelector((state) => state.proteinCart.proteinItems);
 
+  console.log(proteinCartItems);
   return (
     <>
       <div className="flex my-10 justify-center items-center font-serif bg-gradient-to-r from-blue-800 via-blue-700 to-blue-900 text-center">
@@ -84,9 +99,19 @@ function Product() {
                 </div>
 
                 {/* Add to Cart Button */}
-                <p className="text-blue-900 transition-all duration-500 bg-yellow-500 text-center mt-7 py-2 rounded-xl hover:bg-blue-500 hover:text-white cursor-pointer text-lg">
+                <p 
+                onClick={()=>handleAddToCart(product)}
+                
+                className="text-blue-900 transition-all duration-500 bg-yellow-500 text-center mt-7 py-2 rounded-xl hover:bg-blue-500 hover:text-white cursor-pointer text-lg">
                   Add to cart
                 </p>
+
+ <div>
+  <Link href="/cart">go to cart</Link>
+ </div>
+
+
+
               </div>
             </div>
           ))}

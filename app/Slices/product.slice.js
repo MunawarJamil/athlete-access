@@ -1,6 +1,8 @@
  
 import { createSlice } from '@reduxjs/toolkit';
 import { product_sec_row, products } from '../data/product-data';
+
+
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
@@ -8,9 +10,7 @@ const cartSlice = createSlice({
     products: [...product_sec_row, ...products],
   },
   reducers: {
-    // addItemToCart: (state, action) => {
-    //   state.items.push(action.payload);
-    // },
+    
 
 
     addItemToCart: (state, action) => {
@@ -21,7 +21,7 @@ const cartSlice = createSlice({
         state.items.push({ ...action.payload, quantity: 1 });
       }
     },
-
+                      
 
     removeItemFromCart: (state, action) => {
         const { id } = action.payload;

@@ -1,25 +1,29 @@
 "use client";
-import React from "react";
-import { useSelector } from "react-redux";
-import { updateQuantity,removeItemFromCart  } from "../Slices/product.slice";
 
-import {   useDispatch } from "react-redux";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";  // Assuming `protein.slice` handles protein items
+
 function Page() {
-  const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
-  // Calculate the total price
-  const totalPrice = cartItems.reduce(
-    (total, item) => total + item.price * (item.quantity ? parseInt(item.quantity) : 1),  // Default to 1 if quantity is undefined
+ 
+  // const proteinCartItems = useSelector((state) => state.proteinCart.proteinItems);
+  const proteinCartItems = useSelector((state) => state.proteinCart.proteinItems);
+  const workplanCartItems = useSelector((state) => state.workplanCart.selectedPlans);
+
+  console.log(proteinCartItems);
+ 
+  const totalPrice = proteinCartItems.reduce(
+    (total, item) =>
+      total + item.price * (item.quantity ? parseInt(item.quantity) : 1),  
     0
   );
-
-  const handleRemoveItem = (id) => {
-    dispatch(removeItemFromCart({ id }));
-  };
-
-  const handleQuantityChange = (id, action) => {
  
-    const item = cartItems.find((item) => item.id === id);
+  const handleRemoveItem = (id) => {
+    dispatch(removeItemFromCart({ id }));  
+  };
+ 
+  const handleQuantityChange = (id, action) => {
+    const item = proteinCartItems.find((item) => item.id === id);
     if (!item) return;
 
     let newQuantity = item.quantity ? parseInt(item.quantity) : 1;
@@ -31,10 +35,8 @@ function Page() {
     }
 
     dispatch(updateQuantity({ id, quantity: newQuantity }));
-
-   
-
   };
+
   return (
     <section className="w-full items-center mt-20 after:h-full xl:after:w-1/3 after:top-0 after:right-0 after:bg-gray-50">
       <div className="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto relative">
@@ -45,12 +47,12 @@ function Page() {
                 Shopping Cart
               </h2>
               <h2 className="font-manrope font-bold text-xl leading-8 text-gray-600">
-                {cartItems.length} {cartItems.length === 1 ? "Item" : "Items"}
+                {proteinCartItems.length} {proteinCartItems.length === 1 ? "Item" : "Items"}
               </h2>
             </div>
 
-            {cartItems.length > 0 ? (
-              cartItems.map((item, index) => (
+            {proteinCartItems.length > 0 ? (
+              proteinCartItems.map((item, index) => (
                 <div
                   key={index}
                   className="flex flex-col min-[500px]:flex-row min-[500px]:items-center gap-5 py-6 border-b border-gray-200 group"
@@ -101,8 +103,8 @@ function Page() {
                       </p>
                     </div>
 
-                 {/* Remove Button */}
-                 <div className="flex justify-end w-full mt-4">
+                    {/* Remove Button */}
+                    <div className="flex justify-end w-full mt-4">
                       <button
                         onClick={() => handleRemoveItem(item.id)}
                         className="text-red-500 font-semibold text-base leading-7"
@@ -110,10 +112,6 @@ function Page() {
                         Remove
                       </button>
                     </div>
-
-
-
-
                   </div>
                 </div>
               ))
@@ -132,7 +130,7 @@ function Page() {
             <div className="mt-8">
               <div className="flex items-center justify-between pb-6">
                 <p className="font-normal text-lg leading-8 text-black">
-                  {cartItems.length} {cartItems.length === 1 ? "Item" : "Items"}
+                  {proteinCartItems.length} {proteinCartItems.length === 1 ? "Item" : "Items"}
                 </p>
                 <p className="font-medium text-lg leading-8 text-black">
                   ${totalPrice.toFixed(2)}
@@ -144,7 +142,6 @@ function Page() {
       </div>
     </section>
   );
-   
 }
 
 export default Page;

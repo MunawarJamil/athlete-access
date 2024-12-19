@@ -1,9 +1,17 @@
 import React, { useRef } from 'react'
 import { trainers } from '../data/featuredProduct';
 import Image from 'next/image';
+import { useDispatch } from 'react-redux';
+import { addPlanToCart } from '../Slices/workplan.slice';
 function Plans() {
 
     const trainersRef = useRef(null);
+const dispatch = useDispatch()
+
+const handleCheckout = (product) => {
+  dispatch(addPlanToCart([product]));  // Pass product as an array
+  console.log("adding items to cart");
+};
 
     
   const scroll = (ref, direction) => {
@@ -76,7 +84,9 @@ function Plans() {
                 </span>
               </p>
             </div>
-            <p className="text-blue-900 transition-all   duration-500 bg-yellow-500  text-center mt-7 py-2 rounded-xl hover:bg-blue-500 hover:text-white cursor-pointer text-lg">
+            <p 
+            onClick={()=>(handleCheckout(product))}
+            className="text-blue-900 transition-all   duration-500 bg-yellow-500  text-center mt-7 py-2 rounded-xl hover:bg-blue-500 hover:text-white cursor-pointer text-lg">
               View Plan
             </p>
             {/* Add to Cart Button */}
