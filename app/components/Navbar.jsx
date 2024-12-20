@@ -61,8 +61,8 @@ function toggleClicked(){
           </ul>
         </div>
         <div className="icons flex gap-5">
-          <CircleUserRound/>
-          <ShoppingBag/> 
+          <Link href="/profile"> <CircleUserRound/> </Link> 
+         <Link href="/cart"> <ShoppingBag />  </Link> 
           {/* {items.length} */}
 
         </div>

@@ -1,16 +1,65 @@
 "use client";
-
+   
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";  // Assuming `protein.slice` handles protein items
-
+import {loadStripe} from "@stripe/stripe-js"
 function Page() {
+
+ 
   const dispatch = useDispatch();
  
   // const proteinCartItems = useSelector((state) => state.proteinCart.proteinItems);
   const proteinCartItems = useSelector((state) => state.proteinCart.proteinItems);
+
   const workplanCartItems = useSelector((state) => state.workplanCart.selectedPlans);
 
-  console.log(proteinCartItems);
+  console.log('Cart Items:', proteinCartItems);
+
+// Frontend checkout handler
+const handleCheckout = async () => {
+  const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+  try {
+    // Transform the items to match Stripe's expected format
+    const formattedItems = proteinCartItems.map(item => ({
+      title: item.name,  // assuming your item has a 'name' property
+      price: item.price,
+      quantity: item.quantity || 1,
+      image: item.image
+    }));
+
+    const response = await fetch('/api/checkout', {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ 
+        items: formattedItems 
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+
+    const result = await stripe.redirectToCheckout({
+      sessionId: data.sessionId
+    });
+
+
+    // if (data.url) {
+    //   window.location.href = data.url;
+    // } else {
+    //   throw new Error(data.error || 'Failed to create checkout session');
+    // }
+  } catch (error) {
+    console.error('Error during checkout:', error);
+    // You might want to show this error to the user through a toast or alert
+  }
+};
+ 
+ 
  
   const totalPrice = proteinCartItems.reduce(
     (total, item) =>
@@ -136,6 +185,7 @@ function Page() {
                   ${totalPrice.toFixed(2)}
                 </p>
               </div>
+              <button  onClick={handleCheckout} className=" text-center bg-blue-900 py-2 w-full mt-20 text-white font-bold">Check Out Now</button>
             </div>
           </div>
         </div>

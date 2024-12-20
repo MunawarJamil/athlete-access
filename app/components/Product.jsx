@@ -19,6 +19,9 @@ function Product() {
     
 };
 
+
+ 
+
   const productsRef = useRef(null);
 
   const scroll = (ref, direction) => {
@@ -106,9 +109,7 @@ function Product() {
                   Add to cart
                 </p>
 
- <div>
-  <Link href="/cart">go to cart</Link>
- </div>
+ 
 
 
 
